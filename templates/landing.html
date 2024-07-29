@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to Shopping List Manager</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='landing.css') }}"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Welcome to Shopping List Manager</h1>
+      <p>Your easy way to manage shopping lists</p>
+      <div class="image_button_container">
+        <img
+          src="{{ url_for('static', filename='images/shopping.png') }}"
+          alt="Shopping"
+          class="image"
+        />
+        <a href="/manage" class="btn">Get Started</a>
+      </div>
+    </header>
+  </body>
+</html>

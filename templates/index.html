@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Daftar Belanjaan</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Daftar Belanjaan</h1>
+
+      <form
+        id="add-item-form"
+        action="/add"
+        method="post"
+        class="form-container"
+      >
+        <div class="form-group">
+          <label>Nama Item :</label>
+          <input type="text" name="name" placeholder="Nama Item" required />
+        </div>
+        <div class="form-group">
+          <label>Harga :</label>
+          <input
+            type="number"
+            step="0.01"
+            name="price"
+            placeholder="Harga"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label>Jumlah :</label>
+          <input type="number" name="quantity" placeholder="Jumlah" required />
+        </div>
+        <button type="submit">Tambah Item</button>
+      </form>
+
+      <button id="show-list-button">Tampilkan Daftar Belanja</button>
+
+      <h2>Total: {{ total }}</h2>
+
+      <form id="payment-form" class="form-container">
+        <input type="hidden" name="total" value="{{ total }}" />
+        <div class="form-group">
+          <label>Jumlah Uang :</label>
+          <input
+            type="number"
+            step="0.01"
+            name="amount"
+            placeholder="Jumlah Uang"
+            required
+          />
+        </div>
+        <button type="submit">Bayar</button>
+      </form>
+
+      <div id="message"></div>
+
+      <!-- Modal untuk menampilkan daftar belanjaan -->
+      <div id="list-modal" class="modal">
+        <div class="modal-content card">
+          <span class="close">&times;</span>
+          <h2 class="list">Daftar Belanjaan</h2>
+          {% if items == [] %}
+          <p class="empty_list">
+            Anda tidak memiliki daftar belanjaan saat ini
+          </p>
+          {% endif %}
+          <ul class="item-list">
+            {% for item in items %}
+            <li>
+              {{ item[1] }} - {{ item[2] }} x {{ item[3] }} = {{ item[4] }}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
