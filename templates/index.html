@@ -11,7 +11,7 @@
   </head>
   <body>
     <div class="container">
-      <h1>Daftar Belanjaan</h1>
+      <h1>Manajemen Belanjaan</h1>
 
       <form
         id="add-item-form"
@@ -79,7 +79,7 @@
           <ul class="item-list">
             {% for item in items %}
             <li>
-              {{ item[1] }} - {{ item[2] }} x {{ item[3] }} = {{ item[4] }}
+              {{ item[1] }} - {{ item[2] }} * {{ item[3] }} = {{ item[4] }}
             </li>
             {% endfor %}
           </ul>

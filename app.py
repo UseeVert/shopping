@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
-import uuid
 import mysql.connector
 
 app = Flask(__name__)
@@ -12,6 +11,23 @@ db = mysql.connector.connect(
     database="shopping_db"
 )
 cursor = db.cursor()
+""""
+CREATE TABLE IF NOT EXISTS shopping_list (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL,
+    subtotal DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS shopping_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL,
+    subtotal DECIMAL(10, 2) NOT NULL,
+);
+"""
 
 # Rute untuk landing page
 @app.route('/')
@@ -74,7 +90,7 @@ def history():
     cursor.execute("SELECT * FROM shopping_history ORDER BY id DESC LIMIT 15")
     history_items = cursor.fetchall()
     total = sum(item[4] for item in history_items)
-    return render_template('history.html', history_items=history_items)
+    return render_template('history.html', history_items=history_items, total=total)
 
 
 
