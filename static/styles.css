@@ -63,6 +63,11 @@ input {
   color: #e2e2b6;
 }
 
+.item-list {
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
 button {
   padding: 10px;
   margin-top: 10px;
@@ -78,10 +83,13 @@ button:hover {
   background-color: #4e00c2;
 }
 
-.show-button {
+.duo_button {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 10px;
+  margin-top: -20px;
+  justify-items: center;
 }
 
 #show-list-button {
@@ -91,10 +99,49 @@ button:hover {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-right: 50px;
   transition: background-color 0.3s ease;
 }
 
 #show-list-button:hover {
+  background-color: #4e00c2;
+}
+
+a#button-history {
+  margin-left: 25px;
+  padding: 10px 15px 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  background-color: #6b37ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+  font-size: 13px;
+  text-align: left;
+}
+
+#button-history:hover {
+  background-color: #4e00c2;
+}
+
+#back {
+  padding: 10px 10px 10px 10px;
+  margin: 20px;
+  background-color: #6b37ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  display: flex;
+}
+
+#back:hover {
   background-color: #4e00c2;
 }
 
@@ -136,7 +183,7 @@ button:hover {
 }
 
 .close:hover {
-  color: black;
+  color: rgb(126, 124, 124);
   text-decoration: none;
 }
 

@@ -39,8 +39,8 @@ p {
 }
 
 .btn {
-  background-color: #6eacda;
-  color: #021526;
+  background-color: #6b37ff;
+  color: white;
   padding: 10px 20px;
   text-decoration: none;
   font-weight: bold;
@@ -50,6 +50,6 @@ p {
 }
 
 .btn:hover {
-  background-color: #03346e;
+  background-color: #4e00c2;
   color: #e2e2b6;
 }

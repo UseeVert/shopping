@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riwayat Belanja</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Riwayat Belanja</h1>
+      {% if history_items %}
+      <ul class="item-list">
+        {% for item in history_items %}
+        <li>{{ item[1] }} - {{ item[2] }} x {{ item[3] }} = {{ item[4] }}</li>
+        {% endfor %}
+      </ul>
+      <h2>Total: {{ total }}</h2>
+      {% else %}
+      <p>Belum ada riwayat belanja.</p>
+      {% endif %}
+      <a href="{{ url_for('manage') }}" id="back">Kembali ke Manajemen</a>
+    </div>
+  </body>
+</html>

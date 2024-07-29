@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for, jsonify
+import uuid
 import mysql.connector
 
 app = Flask(__name__)
@@ -66,6 +67,17 @@ def pay():
 
     except ValueError:
         return "Jumlah uang tidak valid", 400
+    
+# Rute untuk melihat riwayat belanja
+@app.route('/history')
+def history():
+    cursor.execute("SELECT * FROM shopping_history ORDER BY id DESC LIMIT 15")
+    history_items = cursor.fetchall()
+    total = sum(item[4] for item in history_items)
+    return render_template('history.html', history_items=history_items)
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

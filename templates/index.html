@@ -40,8 +40,11 @@
         <button type="submit">Tambah Item</button>
       </form>
 
-      <div class="show-button">
+      <div class="duo_button">
         <button id="show-list-button">Tampilkan Daftar Belanja</button>
+        <a href="{{ url_for('history') }}" id="button-history"
+          >Lihat Riwayat Belanja</a
+        >
       </div>
 
       <h2>Total: {{ total }}</h2>
